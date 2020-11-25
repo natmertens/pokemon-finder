@@ -1,27 +1,48 @@
-//pokemonList variable
+/*
+pokemonRepository variable that holds pokemonList variable and returns an object with the following functions assigned as keys:
+getAll: return all items
+add: add a single item to the pokemonList array
+*/
 
-let pokemonList = [
-  {
-    name: 'Bulbasaur',
-    height: 0.7,
-    types: ['grass', 'poison']
-  },
+let pokemonRepository = (function() {
 
-  {
-    name: 'Ivysaur',
-    height: 1,
-    types: ['grass', 'poison']
-  },
+  let pokemonList = [
+    {
+      name: 'Bulbasaur',
+      height: 0.7,
+      types: ['grass', 'poison']
+    },
 
-  {
-    name: 'Venusaur',
-    height: 2,
-    types: ['grass', 'poison']
+    {
+      name: 'Ivysaur',
+      height: 1,
+      types: ['grass', 'poison']
+    },
+
+    {
+      name: 'Venusaur',
+      height: 2,
+      types: ['grass', 'poison']
+    }
+
+  ];
+
+  function add(item) {
+    pokemonList.push(item);
   }
 
-];
+  function getAll() {
+    return pokemonList;
+  }
 
-//pokemonList variable ends here
+  return {
+    add: add,
+    getAll: getAll
+  };
+
+})();
+
+//pokemonRepository variable ends here
 
 // forEach loop to display names and heights for all listed pokemons
 pokemonList.forEach(function(pokemon) {
