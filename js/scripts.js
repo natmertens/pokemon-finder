@@ -23,12 +23,13 @@ let pokemonList = [
 
 //pokemonList variable ends here
 
-// for loop to display names and heights for all listed pokemons
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 1.5)
+// forEach loop to display names and heights for all listed pokemons
+pokemonList.forEach(function(pokemon) {
+  if (pokemon.height > 1.5)
   //Text to highlight pokemons larger than 1.5
-    {document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}) – wow, that's big!</p>`);}
+    {document.write(`<p>${pokemon.name} (height: ${pokemon.height}) – wow, that's big!</p>`);}
+  //Text for pokemons not larger than 1.5
   else {
-    document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);}
-}
-//for loop ends here
+    document.write(`<p>${pokemon.name} (height: ${pokemon.height})</p>`);}
+});
+//forEach loop ends here
