@@ -45,7 +45,7 @@ let pokemonRepository = (function() {
 //pokemonRepository variable ends here
 
 // forEach loop to display names and heights for all listed pokemons
-pokemonList.forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   if (pokemon.height > 1.5)
   //Text to highlight pokemons larger than 1.5
     {document.write(`<p>${pokemon.name} (height: ${pokemon.height}) – wow, that's big!</p>`);}
