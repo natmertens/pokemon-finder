@@ -1,11 +1,8 @@
-/*
-pokemonRepository variable that holds pokemonList variable and returns an object with the following functions assigned as keys:
-getAll: return all items
-add: add a single item to the pokemonList array
-*/
+//IIFE
 
 let pokemonRepository = (function() {
 
+  //pokemonList array
   let pokemonList = [
     {
       name: 'Bulbasaur',
@@ -27,10 +24,12 @@ let pokemonRepository = (function() {
 
   ];
 
+  //adds pokemon to pokemonList
   function add(item) {
     pokemonList.push(item);
   }
 
+  //returns pokemonList
   function getAll() {
     return pokemonList;
   }
@@ -43,21 +42,31 @@ let pokemonRepository = (function() {
     button.classList.add('button-class');
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
+    button.addEventListener('click', function(event) {
+      showDetails(pokemon)
+    });
   }
 
+  //displays pokemon names in the console
+  function showDetails(pokemon) {
+    console.log(pokemon.name)
+  }
+
+  //object to access functions outside IIFE
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    showDetails: showDetails
   };
 
 })();
 
-//pokemonRepository variable ends here
+// end IIFE
 
-// forEach loop to display names and heights for all listed pokemons
+// forEach loop to display buttons with names of all pokemons
 
 pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon)
 })
-//forEach loop ends here
+//end forEach
