@@ -34,12 +34,12 @@ let pokemonRepository = (function() {
   //display pokemon details in the console
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
-      console.log(pokemon);
+      showModal(pokemon);
     });
   }
 
 //get list of pokemon from external API and push each one to pokemonList
-  function loadList () {
+  function loadList() {
     return fetch(apiURL).then(function(response) {
       return response.json();
     }).then(function(json) {
@@ -69,14 +69,66 @@ let pokemonRepository = (function() {
     });
   }
 
+
+  let modalContainer = document.querySelector('#modal-container')
+
+
+// display modal
+  function showModal(pokemon) {
+
+    modalContainer.innerHTML = '';
+
+    modalContainer.classList.add('is-visible');
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let button = document.createElement('button');
+    button.classList.add('modal-close');
+    button.innerText = 'X';
+    button.addEventListener('click', hideModal);
+
+    let pokemonShowName = document.createElement('p');
+    pokemonShowName.innerText = `name: ${pokemon.name}`;
+
+    let pokemonShowHeight = document.createElement('p');
+    pokemonShowHeight.innerText = `height: ${pokemon.height}`;
+
+    let pokemonShowImage = document.createElement('img');
+    pokemonShowImage.src = pokemon.imageURL;
+
+    modal.appendChild(button);
+    modal.appendChild(pokemonShowName);
+    modal.appendChild(pokemonShowHeight);
+    modal.appendChild(pokemonShowImage);
+    modalContainer.appendChild(modal);
+  }
+
+//hide modal
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  //hide modal via Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
+//hide modal in case of click outside of modal
+  modalContainer.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer) {
+    hideModal();
+  }
+});
+
   //object to access functions outside IIFE
   return {
-    add: add,
     getAll: getAll,
     addListItem: addListItem,
-    showDetails: showDetails,
-    loadList: loadList,
-    loadDetails: loadDetails
+    loadList: loadList
   };
 
 })();
