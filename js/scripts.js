@@ -85,7 +85,7 @@ let pokemonRepository = (function() {
 
       let pokemonShowName = $('<h1>' + pokemon.name + '</h1>');
 
-      let pokemonShowImage = $('<img class="modal-img" style="width:30%">');
+      let pokemonShowImage = $('<img class="modal-img">');
 
       pokemonShowImage.attr('src', pokemon.imageURL);
 
