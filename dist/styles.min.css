@@ -1,0 +1,14 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+ul {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.page-container {
+  margin-top: 70px;
+}
+.modal-img {
+  width: 30%;
+}
