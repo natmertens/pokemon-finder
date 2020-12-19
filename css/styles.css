@@ -1,6 +1,5 @@
-
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* center pokemon list*/
@@ -16,4 +15,12 @@ ul {
 
 .modal-img {
   width: 30%;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-content {
+  margin-top: 40%;
 }
