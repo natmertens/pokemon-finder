@@ -25,6 +25,7 @@ let pokemonRepository = (function() {
     button.innerText = pokemon.name;
     button.classList.add('btn');
     button.classList.add('btn-warning');
+    button.classList.add('button-class');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemon-modal');
     listItem.appendChild(button);
@@ -77,11 +78,11 @@ let pokemonRepository = (function() {
       });
   }
 
+  let modalBody = document.querySelector('.modal-body');
+  let modalTitle = document.querySelector('.modal-title');
+
   //display modal with Bootstrap
   function showModal(pokemon) {
-    let modalBody = document.querySelector('.modal-body');
-    let modalTitle = document.querySelector('.modal-title');
-
     modalTitle.innerHTML = '';
     modalBody.innerHTML = '';
 
