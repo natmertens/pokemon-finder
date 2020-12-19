@@ -12,3 +12,12 @@ ul {
 .modal-img {
   width: 30%;
 }
+.modal-body {
+  text-align: center;
+}
+.modal-content {
+  margin-top: 40%;
+}
+.button-class {
+  width: 100%;
+}
